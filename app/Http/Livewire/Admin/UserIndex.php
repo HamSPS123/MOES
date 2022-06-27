@@ -277,21 +277,30 @@ class UserIndex extends Component
         ];
     }
 
-    public function deleteUsers(){
-        User::query()
-        ->whereIn('id', $this->selected)
-        ->delete();
-        $this->selected = [];
-        $this->selectAll = false;
+    public function deleteUsers()
+    {
+        try {
+            User::query()
+                ->whereIn('id', $this->selected)
+                ->delete();
+            $this->selected = [];
+            $this->selectAll = false;
 
-        $this->alert('success', 'ການລືບຂໍ້ມູນສຳເລັດ!!!', [
-            'position' => 'top-end',
-            'timer' => 3000,
-            'toast' => true,
-            'timerProgressBar' => true,
-            'text' => '',
-        ]);
+            $this->alert('success', 'ການລືບຂໍ້ມູນສຳເລັດ!!!', [
+                'position' => 'top-end',
+                'timer' => 3000,
+                'toast' => true,
+                'timerProgressBar' => true,
+                'text' => '',
+            ]);
+        } catch (\Throwable $th) {
+            $this->alert('error', 'ການລືບຂໍ້ມູນເກີດຂໍ້ຜິດພາດ ກະລຸນາລອງໃໝ່!!', [
+                'position' => 'top-end',
+                'timer' => 3000,
+                'toast' => true,
+                'timerProgressBar' => true,
+                'text' => '',
+            ]);
+        }
     }
-
-
 }
