@@ -1,0 +1,25 @@
+/* Add your customizations of the layout variables here */
+@font-face {
+    font-family: "NotoSansLao";
+    font-style: normal;
+    font-weight: 400;
+    /* src: local("Nunito Regular"), local("Nunito-Regular"), url("../../layout/fonts/nunito-v12-latin-ext_latin-regular.woff2") format("woff2"), url("../../layout/fonts/nunito-v12-latin-ext_latin-regular.woff") format("woff"); */
+    src: local("NotoSansLao Regular"), local("NotoSansLao-Regular"), url("../fonts/NotoSansLao-Regular.woff2") format("woff2"), url("../fonts/NotoSansLao-Regular.woff") format("woff");
+    /* Modern Browsers */
+  }
+  @font-face {
+    font-family: "NotoSansLao";
+    font-style: normal;
+    font-weight: 600;
+    /* src: local("Nunito SemiBold"), local("Nunito-SemiBold"), url("../fonts/nunito-v12-latin-ext_latin-600.woff2") format("woff2"), url("../fonts/nunito-v12-latin-ext_latin-600.woff") format("woff"); */
+    src: local("NotoSansLao SemiBold"), local("NotoSansLao-SemiBold"), url("../fonts/NotoSansLao-600.woff2") format("woff2"), url("../fonts/NotoSansLao-600.woff") format("woff");
+    /* Modern Browsers */
+  }
+  @font-face {
+    font-family: "NotoSansLao";
+    font-style: normal;
+    font-weight: 700;
+    /* src: local("Nunito Bold"), local("Nunito-Bold"), url("../fonts/nunito-v12-latin-ext_latin-700.woff2") format("woff2"), url("../fonts/nunito-v12-latin-ext_latin-700.woff") format("woff"); */
+    src: local("NotoSansLao Bold"), local("NotoSansLao-Bold"), url("../fonts/NotoSansLao-700.woff2") format("woff2"), url("../fonts/NotoSansLao-700.woff") format("woff");
+    /* Modern Browsers */
+  }
