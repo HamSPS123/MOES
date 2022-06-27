@@ -2,13 +2,13 @@
 
     <div class="flex items-center justify-between my-4">
         <div class="flex-1">
-            @if ($selected)
-            <button wire:click="deleteUsers()" class="gap-2 btn btn-accent">ລຶບຂໍ້ມູນ
+
+            <button @if (!$selected) disabled @endif  wire:click="deleteUsers()" class="gap-2 btn btn-accent">ລຶບຂໍ້ມູນ
                     ({{ count($selected) }})
                 <ion-icon wire:ignore.self class="w-6 h-6" name="trash-sharp">
                 </ion-icon>
             </button>
-            @endif
+
             <label for="AddModal" class="gap-2 text-white btn btn-primary">ເພີ່ມຜູ້ໃຊ້ <ion-icon wire:ignore.self
                     class="w-6 h-6" name="add-circle-sharp"></ion-icon></label>
         </div>

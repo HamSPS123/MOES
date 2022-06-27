@@ -294,7 +294,7 @@ class UserIndex extends Component
                 'text' => '',
             ]);
         } catch (\Throwable $th) {
-            $this->alert('error', 'ການລືບຂໍ້ມູນເກີດຂໍ້ຜິດພາດ ກະລຸນາລອງໃໝ່!!', [
+            $this->alert('error', 'ການລືບຂໍ້ມູນເກີດຂໍ້ຜິດພາດ', [
                 'position' => 'top-end',
                 'timer' => 3000,
                 'toast' => true,
