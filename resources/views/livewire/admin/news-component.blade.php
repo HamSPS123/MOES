@@ -15,6 +15,7 @@
                     <th>ຫົວຂໍ້</th>
                     <th>ຜູ້ຂຽນ</th>
                     <th>ປະເພດ</th>
+                    <th>ເນື້ອຫາຂ່າວ</th>
                     <th>ໜ້າປົກ</th>
                     <th>ໄຟລ໌ແນບ</th>
                     <th></th>
@@ -27,6 +28,7 @@
                         <td>{{ $row->title }}</td>
                         <td>{{ $row->auth->name }}</td>
                         <td>{{ $row->type->name }}</td>
+                        <td>{!! $row->description !!}</td>
                         <td><a href="{{ asset('storage/uploads/' . $row->cover) }}"
                                 target="_blank">{{ $row->cover }}</a></td>
                         <td><a href="{{ asset('storage/uploads/' . $row->attach_file) }}"
@@ -100,12 +102,4 @@
             </div>
         </div>
     </div>
-
-    <!--  Modal Create news -->
-
-    <script>
-        $('#desc').summernote({
-            height: 500
-        });
-    </script>
 </div>
