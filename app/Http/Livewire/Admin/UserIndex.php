@@ -3,11 +3,13 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\User;
+use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithPagination;
 use RealRashid\SweetAlert\Facades\Alert;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use PDO;
 
 class UserIndex extends Component
 {
@@ -36,6 +38,9 @@ class UserIndex extends Component
     public $email;
     public $pwd;
     public $address;
+
+    // delete multiple
+    protected $listeners = ['deleteCheckedUsers'];
 
     public function mount(User $user)
     {
@@ -270,5 +275,32 @@ class UserIndex extends Component
         return [
             'confirmDel'
         ];
+    }
+
+    public function deleteUsers()
+    {
+        try {
+            User::query()
+                ->whereIn('id', $this->selected)
+                ->delete();
+            $this->selected = [];
+            $this->selectAll = false;
+
+            $this->alert('success', 'ການລືບຂໍ້ມູນສຳເລັດ!!!', [
+                'position' => 'top-end',
+                'timer' => 3000,
+                'toast' => true,
+                'timerProgressBar' => true,
+                'text' => '',
+            ]);
+        } catch (\Throwable $th) {
+            $this->alert('error', 'ການລືບຂໍ້ມູນເກີດຂໍ້ຜິດພາດ', [
+                'position' => 'top-end',
+                'timer' => 3000,
+                'toast' => true,
+                'timerProgressBar' => true,
+                'text' => '',
+            ]);
+        }
     }
 }

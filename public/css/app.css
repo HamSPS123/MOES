@@ -2169,13 +2169,6 @@ body[dir="rtl"] .checkbox:checked,
   outline: 2px solid hsla(var(--bc) / 0.2);
   outline-offset: 2px;
 }
-.input-error {
-  --tw-border-opacity: 1;
-  border-color: hsl(var(--er) / var(--tw-border-opacity));
-}
-.input-error:focus {
-  outline: 2px solid hsl(var(--er));
-}
 .input-disabled, 
   .input[disabled] {
   cursor: not-allowed;
@@ -2818,20 +2811,20 @@ body[dir="rtl"] .checkbox:checked,
 .right-0 {
   right: 0px;
 }
+.top-10 {
+  top: 2.5rem;
+}
 .right-2 {
   right: 0.5rem;
 }
 .top-2 {
   top: 0.5rem;
 }
-.bottom-0 {
-  bottom: 0px;
-}
-.top-10 {
-  top: 2.5rem;
-}
 .top-0 {
   top: 0px;
+}
+.bottom-0 {
+  bottom: 0px;
 }
 .z-0 {
   z-index: 0;
@@ -2852,13 +2845,13 @@ body[dir="rtl"] .checkbox:checked,
   margin-left: auto;
   margin-right: auto;
 }
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .mx-3 {
   margin-left: 0.75rem;
@@ -2999,11 +2992,11 @@ body[dir="rtl"] .checkbox:checked,
 .h-20 {
   height: 5rem;
 }
-.h-32 {
-  height: 8rem;
-}
 .h-14 {
   height: 3.5rem;
+}
+.h-32 {
+  height: 8rem;
 }
 .h-full {
   height: 100%;
@@ -3065,12 +3058,6 @@ body[dir="rtl"] .checkbox:checked,
 .w-\[80\%\] {
   width: 80%;
 }
-.w-11\/12 {
-  width: 91.666667%;
-}
-.w-32 {
-  width: 8rem;
-}
 .w-4\/12 {
   width: 33.333333%;
 }
@@ -3094,8 +3081,14 @@ body[dir="rtl"] .checkbox:checked,
 .w-64 {
   width: 16rem;
 }
+.w-11\/12 {
+  width: 91.666667%;
+}
 .w-96 {
   width: 24rem;
+}
+.w-32 {
+  width: 8rem;
 }
 .min-w-0 {
   min-width: 0px;
@@ -3109,14 +3102,14 @@ body[dir="rtl"] .checkbox:checked,
 .max-w-xl {
   max-width: 36rem;
 }
-.max-w-5xl {
-  max-width: 64rem;
-}
 .max-w-xs {
   max-width: 20rem;
 }
 .max-w-6xl {
   max-width: 72rem;
+}
+.max-w-5xl {
+  max-width: 64rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -3410,10 +3403,6 @@ body[dir="rtl"] .checkbox:checked,
 .bg-moe-purple-light {
   --tw-bg-opacity: 1;
   background-color: rgb(72 84 158 / var(--tw-bg-opacity));
-}
-.bg-slate-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(15 23 42 / var(--tw-bg-opacity));
 }
 .bg-slate-600\/20 {
   background-color: rgb(71 85 105 / 0.2);

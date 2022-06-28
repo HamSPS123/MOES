@@ -2,24 +2,29 @@
 
     <div class="flex items-center justify-between my-4">
         <div class="flex-1">
-            <button class="btn gap-2 btn-accent">ລຶບຂໍ້ມູນ <ion-icon wire:ignore.self class="h-6 w-6" name="trash-sharp">
-                </ion-icon></button>
-            <label for="AddModal" class="btn gap-2 btn-primary text-white">ເພີ່ມຜູ້ໃຊ້ <ion-icon wire:ignore.self
-                    class="h-6 w-6" name="add-circle-sharp"></ion-icon></label>
+
+            <button @if (!$selected) disabled @endif  wire:click="deleteUsers()" class="gap-2 btn btn-accent">ລຶບຂໍ້ມູນ
+                    ({{ count($selected) }})
+                <ion-icon wire:ignore.self class="w-6 h-6" name="trash-sharp">
+                </ion-icon>
+            </button>
+
+            <label for="AddModal" class="gap-2 text-white btn btn-primary">ເພີ່ມຜູ້ໃຊ້ <ion-icon wire:ignore.self
+                    class="w-6 h-6" name="add-circle-sharp"></ion-icon></label>
         </div>
-        <div class="flex-1 inline-flex justify-items-end">
-            <div class="flex items-center gap-4 w-2/4 justify-end">
+        <div class="inline-flex flex-1 justify-items-end">
+            <div class="flex items-center justify-end w-2/4 gap-4">
                 <label>ສະແດງ</label>
-                <select wire:model='index' class="select select-bordered w-1/4 max-w-xs">
+                <select wire:model='index' class="w-1/4 max-w-xs select select-bordered">
                     <option value="10" selected>10</option>
                     <option value="25">25</option>
                     <option value="50">50</option>
                     <option value="100">100</option>
                 </select>
             </div>
-            <div class="tooltip tooltip-left justify-end w-1/2" data-tip="ຄົ້ນຫາ ລະຫັດ, ຊື່ຜູ້ໃຊ້ ແລະ ອີເມວ">
+            <div class="justify-end w-1/2 tooltip tooltip-left" data-tip="ຄົ້ນຫາ ລະຫັດ, ຊື່ຜູ້ໃຊ້ ແລະ ອີເມວ">
                 <input wire:model="search" type="search" placeholder="ຄົ້ນຫາ..."
-                    class="input input-bordered w-full max-w-xs" />
+                    class="w-full max-w-xs input input-bordered" />
             </div>
         </div>
     </div>
@@ -39,7 +44,6 @@
                     <th>ວັນເດືອນປີເກີດ</th>
                     <th>ເບີໂທ</th>
                     <th>ອີເມວ</th>
-                    <th>ຮູບໂປຣໄຟລ໌</th>
                     <th>ເຄື່ອງມື</th>
                 </tr>
             </thead>
@@ -58,14 +62,12 @@
                         <td class="text-sm">{{ $row->telephone }}</td>
                         <td class="text-sm">{{ $row->email }}</td>
                         <td class="text-sm">
-                            <img src="{{ $row->profile_photo_path != null ? asset('storage/' . $row->profile_photo_path) : asset('storage/profile.png') }}"
-                                class="w-10 h-10 object-cover rounded-full shadow" alt="">
-                        </td>
-                        <td class="text-sm">
-                            <button wire:click="checkUpdate({{ $row->id }})" class="btn btn-circle btn-sm btn-primary text-white">
+                            <button wire:click="checkUpdate({{ $row->id }})"
+                                class="text-white btn btn-circle btn-sm btn-primary">
                                 <ion-icon wire:ignore.self name="pencil-sharp"></ion-icon>
                             </button>
-                            <button wire:click="checkDelete({{ $row->id }})" class="btn btn-circle btn-sm btn-accent">
+                            <button wire:click="checkDelete({{ $row->id }})"
+                                class="btn btn-circle btn-sm btn-accent">
                                 <ion-icon wire:ignore.self name="trash"></ion-icon>
                             </button>
                         </td>
@@ -84,29 +86,29 @@
     <input type="checkbox" id="AddModal" wire:model="modal" class="modal-toggle" />
     <div class="modal">
         <div class="modal-box">
-            <label for="AddModal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+            <label for="AddModal" class="absolute btn btn-sm btn-circle right-2 top-2">✕</label>
             <form novalidate wire:submit.prevent='store'>
-                <h3 class="font-bold text-xl">ເພີ່ມຂໍ້ມູນຜູ້ໃຊ້</h3>
+                <h3 class="text-xl font-bold">ເພີ່ມຂໍ້ມູນຜູ້ໃຊ້</h3>
 
-                <div class="form-control w-full mt-4">
+                <div class="w-full mt-4 form-control">
                     <label class="label">ລະຫັດພະນັກງານ</label>
                     <input type="text" wire:model="code" placeholder="ກະລຸນາປ້ອນລະຫັດ"
-                        class="input input-bordered w-full uppercase" />
+                        class="w-full uppercase input input-bordered" />
                     @error('code')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="form-control w-full mt-2">
+                <div class="w-full mt-2 form-control">
                     <label class="label">ຊື່ຜູ້ໃຊ້</label>
                     <input wire:model="name" type="text" placeholder="ກະລຸນາປ້ອນຊື່ຜູ້ໃຊ້"
-                        class="input input-bordered w-full" />
+                        class="w-full input input-bordered" />
                     @error('name')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="form-control w-full mt-2">
+                <div class="w-full mt-2 form-control">
                     <label class="label">ເພດ</label>
-                    <select wire:model="gender" class="select select-bordered w-full">
+                    <select wire:model="gender" class="w-full select select-bordered">
                         <option disabled selected>ກະລຸນາເລືອກເພດ</option>
                         <option value="ຊາຍ">ຊາຍ</option>
                         <option value="ຍິງ">ຍິງ</option>
@@ -115,10 +117,10 @@
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="form-control w-full mt-2">
+                <div class="w-full mt-2 form-control">
                     <label class="label">ວັນເດືອນປີເກີດ</label>
                     <input wire:model="dob" type="date" placeholder="ກະລຸນາປ້ອນຊື່ລະຫັດ"
-                        class="input input-bordered w-full" />
+                        class="w-full input input-bordered" />
                     @error('dob')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
@@ -126,30 +128,30 @@
                 <div class="form-control">
                     <label class="label">ເບີໂທ</label>
                     <input wire:model='telephone' type="text" placeholder="20 xxxx xxxx"
-                        class="input input-bordered w-full" />
+                        class="w-full input input-bordered" />
                     @error('telephone')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="form-control w-full mt-2">
+                <div class="w-full mt-2 form-control">
                     <label class="label">ອີເມວ</label>
                     <input wire:model="email" type="email" placeholder="example@email.com"
-                        class="input input-bordered w-full" />
+                        class="w-full input input-bordered" />
                     @error('email')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="form-control w-full mt-2">
+                <div class="w-full mt-2 form-control">
                     <label class="label">ລະຫັດຜ່ານຜູ້ໃຊ້</label>
                     <input wire:model="pwd" type="password" placeholder="ກະລຸນາປ້ອນລະຫັດຜ່ານ"
-                        class="input input-bordered w-full" />
+                        class="w-full input input-bordered" />
                     @error('pwd')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="form-control w-full mt-2">
+                <div class="w-full mt-2 form-control">
                     <label class="label">ທີ່ຢູ່</label>
-                    <textarea wire:model='address' class="textarea textarea-bordered w-full" placeholder="ປ້ອນທີ່ຢູ່"></textarea>
+                    <textarea wire:model='address' class="w-full textarea textarea-bordered" placeholder="ປ້ອນທີ່ຢູ່"></textarea>
                     @error('address')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
@@ -158,7 +160,8 @@
 
                 <div class="modal-action">
                     <label for="AddModal" class="btn btn-accent">ຍົກເລີກ</label>
-                    <button type="submit" wire:click.prevent='store' class="btn btn-primary text-white">ບັນທຶກ</button>
+                    <button type="submit" wire:click.prevent='store'
+                        class="text-white btn btn-primary">ບັນທຶກ</button>
                 </div>
             </form>
         </div>
@@ -170,29 +173,29 @@
     <input type="checkbox" id="UpdateModal" wire:model="updateModal" class="modal-toggle" />
     <div class="modal">
         <div class="modal-box">
-            <label for="UpdateModal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+            <label for="UpdateModal" class="absolute btn btn-sm btn-circle right-2 top-2">✕</label>
             <form novalidate wire:submit.prevent='updateUser'>
-                <h3 class="font-bold text-xl">ແກ້ໄຂຂໍ້ມູນຜູ້ໃຊ້</h3>
+                <h3 class="text-xl font-bold">ແກ້ໄຂຂໍ້ມູນຜູ້ໃຊ້</h3>
 
-                <div class="form-control w-full mt-4">
+                <div class="w-full mt-4 form-control">
                     <label class="label">ລະຫັດພະນັກງານ</label>
                     <input type="text" wire:model="code" placeholder="ກະລຸນາປ້ອນລະຫັດ"
-                        class="input input-bordered w-full uppercase" />
+                        class="w-full uppercase input input-bordered" />
                     @error('code')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="form-control w-full mt-2">
+                <div class="w-full mt-2 form-control">
                     <label class="label">ຊື່ຜູ້ໃຊ້</label>
                     <input wire:model="name" type="text" placeholder="ກະລຸນາປ້ອນຊື່ຜູ້ໃຊ້"
-                        class="input input-bordered w-full" />
+                        class="w-full input input-bordered" />
                     @error('name')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="form-control w-full mt-2">
+                <div class="w-full mt-2 form-control">
                     <label class="label">ເພດ</label>
-                    <select wire:model="gender" class="select select-bordered w-full">
+                    <select wire:model="gender" class="w-full select select-bordered">
                         <option disabled selected>ກະລຸນາເລືອກເພດ</option>
                         <option value="ຊາຍ">ຊາຍ</option>
                         <option value="ຍິງ">ຍິງ</option>
@@ -201,10 +204,10 @@
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="form-control w-full mt-2">
+                <div class="w-full mt-2 form-control">
                     <label class="label">ວັນເດືອນປີເກີດ</label>
                     <input wire:model="dob" type="date" placeholder="ກະລຸນາປ້ອນຊື່ລະຫັດ"
-                        class="input input-bordered w-full" />
+                        class="w-full input input-bordered" />
                     @error('dob')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
@@ -212,22 +215,22 @@
                 <div class="form-control">
                     <label class="label">ເບີໂທ</label>
                     <input wire:model='telephone' type="text" placeholder="20 xxxx xxxx"
-                        class="input input-bordered w-full" />
+                        class="w-full input input-bordered" />
                     @error('telephone')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="form-control w-full mt-2">
+                <div class="w-full mt-2 form-control">
                     <label class="label">ອີເມວ</label>
                     <input wire:model="email" type="email" placeholder="example@email.com"
-                        class="input input-bordered w-full" />
+                        class="w-full input input-bordered" />
                     @error('email')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="form-control w-full mt-2">
+                <div class="w-full mt-2 form-control">
                     <label class="label">ທີ່ຢູ່</label>
-                    <textarea wire:model='address' class="textarea textarea-bordered w-full" placeholder="ປ້ອນທີ່ຢູ່"></textarea>
+                    <textarea wire:model='address' class="w-full textarea textarea-bordered" placeholder="ປ້ອນທີ່ຢູ່"></textarea>
                     @error('address')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
@@ -236,7 +239,7 @@
 
                 <div class="modal-action">
                     <label for="UpdateModal" class="btn btn-accent">ຍົກເລີກ</label>
-                    <button type="submit" class="btn btn-primary text-white">ບັນທຶກ</button>
+                    <button type="submit" class="text-white btn btn-primary">ບັນທຶກ</button>
                 </div>
             </form>
         </div>
