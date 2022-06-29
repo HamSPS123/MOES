@@ -10,6 +10,9 @@
             <livewire:admin.news-component />
         @elseif (request()->routeIs('admin.news.add'))
             <livewire:admin.add-news />
+        @else
+            {{-- <livewire:admin.edit-news /> --}}
+            <livewire:editNews />
         @endif
     </div>
 </div>

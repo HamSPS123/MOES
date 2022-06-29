@@ -3,7 +3,6 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
-use App\Models\News;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,8 +39,9 @@ Route::prefix('dashboard')->middleware(['auth:sanctum', config('jetstream.auth_s
     Route::get('/users', [AdminController::class, 'users'])->name('admin.users'); // users/employee
     Route::get('/user/update', [AdminController::class, 'userUpdate'])->name('admin.update-user-profile'); // users/employee
 
-    Route::controller(NewsController:: class)->group(function(){
+    Route::controller(NewsController::class)->group(function(){
         Route::get('/news', 'index')->name('admin.news');
         Route::get('/news/add', 'index')->name('admin.news.add');
+        Route::get('/news/edit/{id?}', 'edit')->name('admin.news.edit');
     });
 });

@@ -12,8 +12,12 @@
             <div class="dropdown dropdown-end">
                 <div tabindex="0"
                     class="flex items-center gap-4 p-2 rounded-md cursor-pointer hover:bg-slate-100 profile">
-                    <img class="object-cover w-8 h-8 rounded-full" src="{{ Auth::user()->profile_photo_url }}"
-                        alt="">
+
+                          <div class="avatar online">
+                            <div class="w-8 rounded-full">
+                              <img src="{{ Auth::user()->profile_photo_url }}" />
+                            </div>
+                          </div>
 
                     <p class="inline-block">
                         <span class="font-semibold align-middle">{{ Auth::user()->name }}</span>

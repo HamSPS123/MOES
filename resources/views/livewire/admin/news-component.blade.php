@@ -15,7 +15,6 @@
                     <th>ຫົວຂໍ້</th>
                     <th>ຜູ້ຂຽນ</th>
                     <th>ປະເພດ</th>
-                    <th>ເນື້ອຫາຂ່າວ</th>
                     <th>ໜ້າປົກ</th>
                     <th>ໄຟລ໌ແນບ</th>
                     <th></th>
@@ -28,7 +27,6 @@
                         <td>{{ $row->title }}</td>
                         <td>{{ $row->auth->name }}</td>
                         <td>{{ $row->type->name }}</td>
-                        <td>{!! $row->description !!}</td>
                         <td><a href="{{ asset('storage/uploads/' . $row->cover) }}"
                                 target="_blank">{{ $row->cover }}</a></td>
                         <td><a href="{{ asset('storage/uploads/' . $row->attach_file) }}"
@@ -37,6 +35,9 @@
                             <button class="text-white btn btn-sm btn-circle btn-info">
                                 <ion-icon wire:ignore.self name="eye-sharp"></ion-icon>
                             </button>
+                            <a href="{{ route('admin.news.edit', [$row->id]) }}" class="text-white btn btn-sm btn-circle btn-primary">
+                                <ion-icon wire:ignore.self name="pencil"></ion-icon>
+                            </a>
                             <button class="text-white btn btn-sm btn-circle btn-accent">
                                 <ion-icon wire:ignore.self name="trash"></ion-icon>
                             </button>

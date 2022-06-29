@@ -34,7 +34,7 @@ class AddNews extends Component
             'cover' => 'image|max:10240', //10 MB
             'attach.*' => 'mimes: jpg,jpeg,png,pdf|max:51200', //50 MB
             'type' => 'required',
-
+            'desc' => 'required',
         ];
     }
 
@@ -46,6 +46,7 @@ class AddNews extends Component
         'attach.mimes' => "ກະລຸນາເລືອກໄຟລ໌ນາມສະກຸນ *.jpg,*.jpeg,*.png,*.pdf ເທົ່ານັ້ນ",
         'attach.max' => "ຂະໜາດໄຟລ໌ບໍ່ໃຫ້ເກີນ 50MB",
         'type.required' => "ກະລຸນາເລືອກປະເພດຂ່າວສານ",
+        'desc.required' => "ກະລຸນາເນື້ອຫາຂ່າວ",
     ];
 
     // Real-time validate
@@ -56,9 +57,37 @@ class AddNews extends Component
 
     public function store()
     {
-        $this->validate();
+        // $this->validate();
 
         try {
+
+            $content = $this->desc;
+            $dom = new \DOMDocument();
+            $dom->loadHTML('<?xml encoding="UTF-8">'.$content);
+
+            $images = $dom->getElementsByTagName('img');
+
+            foreach($images as $k => $img){
+                $data = $img->getattribute('src');
+                list($type, $data) = explode(';', $data);
+                list(, $data) = explode(',', $data);
+
+                $data = base64_decode($data);
+
+                $image_name = "/uploads/".time().$k.'.png';
+
+                $path = public_path() . $image_name;
+
+                file_put_contents($path, $data);
+
+                $img->removeattribute('src');
+                $img->setattribute('src', $image_name);
+            }
+
+            $this->desc = $dom->saveHTML();
+
+            // dd($this->desc);
+
             $news = new News();
 
             $news->title = $this->title;
@@ -67,12 +96,12 @@ class AddNews extends Component
 
             //cover upload
             $photoFileName = $this->cover->hashName();
-            $this->cover->storeAs('news-cover',$photoFileName, 'public');
+            $this->cover->storeAs('uploads',$photoFileName, 'public');
             $news->cover = $photoFileName;
 
             //attach file upload
             $attachFileName = $this->attach->hashName();
-            $this->attach->storeAs('news-attach', $attachFileName, 'public');
+            $this->attach->storeAs('uploads', $attachFileName, 'public');
             $news->attach_file = $attachFileName;
 
             $news->user_id = Auth::user()->id;

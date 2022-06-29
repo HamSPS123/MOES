@@ -3,13 +3,10 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\User;
-use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithPagination;
-use RealRashid\SweetAlert\Facades\Alert;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use PDO;
 
 class UserIndex extends Component
 {
