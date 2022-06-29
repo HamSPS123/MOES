@@ -20,9 +20,8 @@
                             <h2 class="card-title"> {{ $new->title }}</h2>
                             <p class="text-sm text-gray-500">ໂດຍ {{$new->auth->name}} | {{($new->created_at)->format('d/m/Y')}}</p>
                             <div class="flex justify-between card-actions mt-4">
-                                <button class="text-red-500 flex items-center gap-1">ດາວໂຫຼດ PDF <ion-icon name="cloud-download-outline"></ion-icon></button>
-                                <button class="text-green-500 flex items-center gap-1">ອ່ານຕໍ່ <ion-icon name="chevron-forward-circle-outline"></ion-icon></button>
-
+                                <a class="text-red-500 flex items-center gap-1" href="{{asset('storage/uploads/'.$new->attach_file)}}">ດາວໂຫຼດ PDF <ion-icon name="cloud-download-outline"></ion-icon></a>
+                                <a class="text-green-500 flex items-center gap-1">ອ່ານຕໍ່ <ion-icon name="chevron-forward-circle-outline"></ion-icon></a>
                             </div>
                         </div>
                     </div>
