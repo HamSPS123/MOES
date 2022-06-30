@@ -55,3 +55,7 @@
         </div>
     </nav>
 </header>
+
+<section class="hero">
+    <img class="w-full" src="{{ asset('images/banner.jpg') }}" alt="">
+</section>
