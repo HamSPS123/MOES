@@ -38,7 +38,7 @@
                         <span class="font-medium">{{ $paginator->lastItem() }}</span>
                         <span>{!! __('ຂອງ') !!}</span>
                         <span class="font-medium">{{ $paginator->total() }}</span>
-                        <span>{!! __('ຜົນລັບ') !!}</span>
+                        <span>{!! __('ຜົນຮັບ') !!}</span>
                     </p>
                 </div>
 
