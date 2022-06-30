@@ -1,7 +1,5 @@
 <div>
-    <section class="hero">
-        <img class="w-full" src="{{ asset('images/banner.jpg') }}" alt="">
-    </section>
+
 
     <main class="mt-8">
         <div class="container">
