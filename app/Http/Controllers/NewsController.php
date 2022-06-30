@@ -10,6 +10,8 @@ class NewsController extends Controller
         return view('admin.news');
     }
 
+
+
     // public function edit(){
     //     return view('admin.news-edit');
     // }

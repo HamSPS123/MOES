@@ -27,9 +27,9 @@
                         <td>{{ $row->title }}</td>
                         <td>{{ $row->auth->name }}</td>
                         <td>{{ $row->type->name }}</td>
-                        <td><a href="{{ asset('storage/uploads/' . $row->cover) }}"
+                        <td><a class="block overflow-hidden w-28 whitespace-nowrap text-ellipsis" href="{{ asset('storage/uploads/' . $row->cover) }}"
                                 target="_blank">{{ $row->cover }}</a></td>
-                        <td><a href="{{ asset('storage/uploads/' . $row->attach_file) }}"
+                        <td><a class="block overflow-hidden w-28 whitespace-nowrap text-ellipsis" href="{{ asset('storage/uploads/' . $row->attach_file) }}"
                                 target="_blank">{{ $row->attach_file }}</a></td>
                         <th class="text-center">
                             <button class="text-white btn btn-sm btn-circle btn-info">
@@ -38,7 +38,7 @@
                             <a href="{{ route('admin.news.edit', [$row->id]) }}" class="text-white btn btn-sm btn-circle btn-primary">
                                 <ion-icon wire:ignore.self name="pencil"></ion-icon>
                             </a>
-                            <button class="text-white btn btn-sm btn-circle btn-accent">
+                            <button wire:click="checkDelete({{ $row->id }})" class="text-white btn btn-sm btn-circle btn-accent">
                                 <ion-icon wire:ignore.self name="trash"></ion-icon>
                             </button>
                         </th>
@@ -47,60 +47,5 @@
             </tbody>
         </table>
         {{ $post->links() }}
-    </div>
-
-    <!--  Modal Create news -->
-
-    <!-- Put this part before </body> tag -->
-    <input type="checkbox" id="AddModal" class="modal-toggle" wire:model="modal" />
-    <div class="modal">
-        <div class="w-11/12 max-w-5xl modal-box">
-            <h3 class="text-xl font-bold">ເພີ່ມຂ່າວສານ</h3>
-            <label for="AddModal" class="absolute btn btn-sm btn-circle right-2 top-2">✕</label>
-            <form>
-                <div class="w-full mt-4 form-control">
-                    <label>ຫົວຂໍ້ <span class="text-red-500">*</span></label>
-                    <input type="text" wire:model="code" placeholder="ຫົວຂໍ້ຂ່າວ"
-                        class="w-full input input-bordered" />
-                    @error('code')
-                        <span class="text-sm text-red-500">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="w-full mt-4 form-control">
-                    <label>ໜ້າປົກຂ່າວ <span class="text-red-500">*</span></label>
-                    <input type="file" wire:model="code" placeholder="ຫົວຂໍ້ຂ່າວ" class="w-full input" />
-                    @error('code')
-                        <span class="text-sm text-red-500">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="w-full mt-4 form-control">
-                    <label>ອັບໂຫຼດໄຟລ໌ແນບ <span class="text-red-500">*</span></label>
-                    <input type="file" wire:model="code" placeholder="ຫົວຂໍ້ຂ່າວ" class="w-full input"
-                        accept=".pdf" />
-                    @error('code')
-                        <span class="text-sm text-red-500">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="w-full mt-4 form-control">
-                    <label>ປະເພດເອກະສານ <span class="text-red-500">*</span></label>
-                    <select name="" id="" class="w-full select select-bordered">
-                        <option value="" selected disabled>ເລືອກປະເພດເອກະສານ</option>
-                        @foreach (\App\Models\Type::all() as $type)
-                            <option value="{{ $type->id }}">{{ $type->name }}</option>
-                        @endforeach
-                    </select>
-                    @error('code')
-                        <span class="text-sm text-red-500">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="w-full mt-4 form-control">
-                    <label>ລາຍລະອຽດ</label>
-                    <div id="desc"></div>
-                </div>
-            </form>
-            <div class="modal-action">
-                <label for="my-modal-5" class="btn">Yay!</label>
-            </div>
-        </div>
     </div>
 </div>

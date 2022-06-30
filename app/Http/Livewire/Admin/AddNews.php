@@ -57,7 +57,7 @@ class AddNews extends Component
 
     public function store()
     {
-        // $this->validate();
+        $this->validate();
 
         try {
 
@@ -118,7 +118,7 @@ class AddNews extends Component
                 'timer' => 3000,
                 'toast' => false,
                 'showConfirmButton' => true,
-                'onConfirmed' => '',
+                'onConfirmed' => 'changeRoute',
                 'confirmButtonText' => 'ຕົກລົງ',
                 'timerProgressBar' => true,
             ]);
@@ -131,13 +131,23 @@ class AddNews extends Component
                 'timer' => 3000,
                 'toast' => false,
                 'showConfirmButton' => true,
-                'onConfirmed' => function(){
-                    return redirect()->route('admin.news');
-                },
+                'onConfirmed' => '',
                 'confirmButtonText' => 'ຕົກລົງ',
                 'timerProgressBar' => true,
                 'text' => $th,
             ]);
         }
+    }
+
+    public function getListeners()
+    {
+        return [
+            'changeRoute'
+        ];
+    }
+
+    public function changeRoute()
+    {
+        return redirect()->route('admin.news');
     }
 }

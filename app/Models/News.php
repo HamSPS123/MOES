@@ -9,6 +9,12 @@ class News extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'cover',
+        'attach_file',
+        'description',
+    ];
 
     // relation
     public function type()
