@@ -26,11 +26,6 @@
 
                 <ul tabindex="0" class="p-2 mt-4 shadow menu dropdown-content bg-base-100 rounded-box w-52">
                     <li>
-                        <a href="{{ route('admin.update-user-profile') }}" class="flex items-center">
-                            <ion-icon name="person-sharp"></ion-icon> ຈັດການໂປຣໄຟລ໌ຜູ້ໃຊ້
-                        </a>
-                    </li>
-                    <li>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}" x-data>
                             @csrf

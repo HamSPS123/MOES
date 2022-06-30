@@ -10,10 +10,6 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
-    public function userUpdate(){
-        return view('admin.update-user-profile');
-    }
-
     public function users(){
         return view('admin.users');
     }
