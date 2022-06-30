@@ -19,6 +19,14 @@
     h6 {
         @apply text-sm font-semibold;
     }
+
+    .table {
+        @apply w-full;
+    }
+
+    .table th, .table td{
+        @apply border;
+    }
 }
 
 @tailwind components;

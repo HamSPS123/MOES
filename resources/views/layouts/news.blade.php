@@ -22,6 +22,8 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" defer></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" defer></script>
 
+    <link rel="stylesheet" href="{{ asset('js/summernote/summernote-lite.min.css') }}">
+
     <style>
         @media screen and (min-width: 720px) {
             .flex-2 {

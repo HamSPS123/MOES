@@ -1,11 +1,13 @@
 <div>
     <div class="w-full overflow-x-auto">
         <div class="flex justify-between my-4">
-            <div class="inline-flex gap-4">
+            <div class="inline-flex flex-1 gap-4">
                 <a href="{{ route('admin.news.add') }}" class="gap-2 text-white btn btn-primary">ເພີ່ມຂໍ້ມູນ <ion-icon
                         wire:ignore.self class="w-6 h-6" name="add-circle-sharp"></ion-icon></a>
             </div>
-            <div>Right</div>
+            <div class="flex-1">
+                <input type="search" class="w-full max-w-xs justify-items-end input input-bordered">
+            </div>
         </div>
         <table class="table w-full">
             <!-- head -->
@@ -32,9 +34,9 @@
                         <td><a class="block overflow-hidden w-28 whitespace-nowrap text-ellipsis" href="{{ asset('storage/uploads/' . $row->attach_file) }}"
                                 target="_blank">{{ $row->attach_file }}</a></td>
                         <th class="text-center">
-                            <button class="text-white btn btn-sm btn-circle btn-info">
+                            <a href="{{ route('readmore', [$row->id]) }}" target="_blank" class="text-white btn btn-sm btn-circle btn-info">
                                 <ion-icon wire:ignore.self name="eye-sharp"></ion-icon>
-                            </button>
+                            </a>
                             <a href="{{ route('admin.news.edit', [$row->id]) }}" class="text-white btn btn-sm btn-circle btn-primary">
                                 <ion-icon wire:ignore.self name="pencil"></ion-icon>
                             </a>
