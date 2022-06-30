@@ -13,6 +13,7 @@ class NewsComponent extends Component
     use LivewireAlert;
 
     public $deleteId;
+    public $search = '';
 
 
     public function render()
@@ -21,6 +22,7 @@ class NewsComponent extends Component
             'post' => News::query()
             ->with('type')
             ->with('auth')
+            ->where('title', 'like', '%'. $this->search . '%')
             ->paginate(10)
         ]);
     }

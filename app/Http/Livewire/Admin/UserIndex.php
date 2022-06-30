@@ -21,6 +21,7 @@ class UserIndex extends Component
     public User $user;
     public $modal;
     public $updateModal;
+    public $resetModal;
 
     public $updateId;
     public $deleteId;
@@ -298,6 +299,43 @@ class UserIndex extends Component
                 'timerProgressBar' => true,
                 'text' => '',
             ]);
+        }
+    }
+
+    public function checkReset($id){
+        $this->updateId = $id;
+
+        $this->resetModal = true;
+    }
+
+    public function confirmReset(){
+        $this->validate([
+            'pwd' => 'required'
+        ]);
+
+        try {
+
+            User::find($this->updateId)->update([
+                'password' => Hash::make($this->pwd),
+            ]);
+
+            $this->resetForm();
+
+            $this->resetModal = false;
+
+            $this->alert('success', 'ປ່ຽນລະຫັດສຳເລັດ!!!', [
+                'position' => 'top-end',
+                'timer' => 3000,
+                'toast' => true,
+                'timerProgressBar' => true,
+               ]);
+        } catch (\Throwable $th) {
+            $this->alert('error', 'ເກີດຂໍ້ຜິດຜາດ ກະລຸນາລອງໃໝ່!!!', [
+                'position' => 'top-end',
+                'timer' => 3000,
+                'toast' => true,
+                'timerProgressBar' => true,
+               ]);
         }
     }
 }

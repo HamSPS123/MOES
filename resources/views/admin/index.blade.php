@@ -1,5 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-<h1>Admin Dashboard</h1>
+
+<section class="bg-white dark:bg-gray-900">
+    <livewire:admin.admin-index />
+</section>
 @endsection

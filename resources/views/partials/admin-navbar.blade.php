@@ -1,11 +1,9 @@
 <nav class="w-full bg-white pl-64 shadow-sm admin-nav transition-[padding-left] ease-in-out delay-150">
-    <div class="container-fluid relative flex items-center justify-between py-2">
+    <div class="relative flex items-center justify-between py-2 container-fluid">
         <div class="flex items-center w-4/12 gap-4">
-            <button type="button" class="admin-toggle bg-transparent border-none btn text-slate-700 hover:bg-slate-100">
+            <button type="button" class="bg-transparent border-none admin-toggle btn text-slate-700 hover:bg-slate-100">
                 <ion-icon name="menu-outline" class="text-xl"></ion-icon>
             </button>
-
-            <h1 class="text-lg">Breadcrumbs</h1>
         </div>
         <div class="flex items-center justify-end w-4/12">
             <div class="divider divider-horizontal"></div>
@@ -42,7 +40,7 @@
                                 {{ __('Log Out') }}
                             </x-jet-dropdown-link> --}}
 
-                            <a href="{{ route('logout') }}" class='text-red-500 flex items-center' @click.prevent="$root.submit();">
+                            <a href="{{ route('logout') }}" class='flex items-center text-red-500' @click.prevent="$root.submit();">
                                 <ion-icon class='mr-2' name="log-out-outline"></ion-icon>
 
                                 ອອກຈາກລະບົບ
