@@ -1,4 +1,4 @@
-<header class="w-full text-white bg-moe-purple font-NotoSansLao z-[999] py-2 header-menu transition-[padding] ease-in-out delay-150">
+<header class="w-full text-white bg-moe-purple font-NotoSansLao z-[999] top-0 py-2 header-menu transition-[padding] ease-in-out delay-150">
     <nav class="container flex flex-wrap items-center justify-between mx-auto lg:flex-nowrap">
         <div class="flex-1 lg:flex-auto">
             <a href="#">

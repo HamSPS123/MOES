@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\MainNewsController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ReadmoreController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,7 @@ Route::get('/',  [MainController::class, "mainIndex"])->name('index');
 Route::get('/about',  [AboutController::class, "aboutIndex"])->name('about');
 Route::get('/news',  [MainNewsController::class, "mainnewsIndex"])->name('news');
 Route::get('/contact',  [ContactController::class, "contactIndex"])->name('contact');
+Route::get('/readmore/{id?}',  [ReadmoreController::class, "index"])->name('readmore');
 
 
 

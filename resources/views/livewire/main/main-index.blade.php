@@ -6,7 +6,7 @@
     <main class="mt-8">
         <div class="container">
             <article class="prose lg:prose-xl">
-                <h1>ແຈ້ງການນິຕິກຳ</h1>
+                <h1>ແຈ້ງການ</h1>
             </article>
 
             <div wire:init='initLoading'>
@@ -20,8 +20,8 @@
                             <h2 class="card-title"> {{ $new->title }}</h2>
                             <p class="text-sm text-gray-500">ໂດຍ {{$new->auth->name}} | {{($new->created_at)->format('d/m/Y')}}</p>
                             <div class="flex justify-between card-actions mt-4">
-                                <a class="text-red-500 flex items-center gap-1" href="{{asset('storage/uploads/'.$new->attach_file)}}">ດາວໂຫຼດ PDF <ion-icon name="cloud-download-outline"></ion-icon></a>
-                                <a class="text-green-500 flex items-center gap-1">ອ່ານຕໍ່ <ion-icon name="chevron-forward-circle-outline"></ion-icon></a>
+                                <a class="text-red-500 flex items-center gap-1" href="{{asset('storage/uploads/'.$new->attach_file)}}" download="">ດາວໂຫຼດ PDF <ion-icon name="cloud-download-outline"></ion-icon></a>
+                                <a href="{{ route('readmore', ['id'=>$new->id]) }}" class="text-green-500 flex items-center gap-1">ອ່ານຕໍ່ <ion-icon name="chevron-forward-circle-outline"></ion-icon></a>
                             </div>
                         </div>
                     </div>
