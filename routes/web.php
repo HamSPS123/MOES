@@ -43,7 +43,6 @@ Route::middleware([
 Route::prefix('dashboard')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index'); // users/employee
     Route::get('/users', [AdminController::class, 'users'])->name('admin.users'); // users/employee
-    Route::get('/user/update', [AdminController::class, 'userUpdate'])->name('admin.update-user-profile'); // users/employee
 
     Route::controller(NewsController::class)->group(function(){
         Route::get('/news', 'index')->name('admin.news');

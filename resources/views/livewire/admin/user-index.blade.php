@@ -33,18 +33,18 @@
         <table class="table w-full">
             <!-- head -->
             <thead>
-                <tr>
+                <tr class="text-center">
                     <th>
                         <input type="checkbox" wire:model='selectAll' class="checkbox checkbox-secondary">
                     </th>
-                    <th>#</th>
-                    <th>ລະຫັດພະນັກງານ</th>
-                    <th>ຊື່ຜູ້ໃຊ້</th>
-                    <th>ເພດ</th>
-                    <th>ວັນເດືອນປີເກີດ</th>
-                    <th>ເບີໂທ</th>
-                    <th>ອີເມວ</th>
-                    <th>ເຄື່ອງມື</th>
+                    <th class="text-[1.2rem]">#</th>
+                    <th class="text-[1.2rem]">ລະຫັດພະນັກງານ</th>
+                    <th class="text-[1.2rem]">ຊື່ຜູ້ໃຊ້</th>
+                    <th class="text-[1.2rem]">ເພດ</th>
+                    <th class="text-[1.2rem]">ວັນເດືອນປີເກີດ</th>
+                    <th class="text-[1.2rem]">ເບີໂທ</th>
+                    <th class="text-[1.2rem]">ອີເມວ</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -61,7 +61,11 @@
                         <td class="text-sm">{{ $row->dob }}</td>
                         <td class="text-sm">{{ $row->telephone }}</td>
                         <td class="text-sm">{{ $row->email }}</td>
-                        <td class="text-sm">
+                        <td class="flex items-center gap-2 text-sm">
+                            <button wire:click="checkReset({{ $row->id }})"
+                                class="text-white btn btn-circle btn-sm btn-info">
+                                <ion-icon wire:ignore.self class="w-6 h-6" name="document-lock-outline"></ion-icon>
+                            </button>
                             <button wire:click="checkUpdate({{ $row->id }})"
                                 class="text-white btn btn-circle btn-sm btn-primary">
                                 <ion-icon wire:ignore.self name="pencil-sharp"></ion-icon>
@@ -245,4 +249,33 @@
         </div>
     </div>
     <!-- Modal Update Users -->
+
+     <!-- Modal Update Users -->
+
+     <input type="checkbox" id="resetModal" wire:model="resetModal" class="modal-toggle" />
+     <div class="modal">
+         <div class="modal-box">
+             <label for="resetModal" class="absolute btn btn-sm btn-circle right-2 top-2">✕</label>
+             <form novalidate wire:submit.prevent='confirmReset'>
+                 <h3 class="text-xl font-bold">ປ່ຽນລະຫັດຜ່ານ</h3>
+
+                 <div class="w-full mt-4 form-control">
+                     <label class="label">ລະຫັດຜ່ານໃໝ່</label>
+                     <input type="text" wire:model="pwd" placeholder="ກະລຸນາປ້ອນລະຫັດ"
+                         class="w-full input input-bordered" />
+                     @error('pwd')
+                         <span class="text-sm text-red-500">{{ $message }}</span>
+                     @enderror
+                 </div>
+
+
+
+                 <div class="modal-action">
+                     <label for="resetModal" class="btn btn-accent">ຍົກເລີກ</label>
+                     <button type="submit" class="text-white btn btn-primary">ບັນທຶກ</button>
+                 </div>
+             </form>
+         </div>
+     </div>
+     <!-- Modal Update Users -->
 </div>
