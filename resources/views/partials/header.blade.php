@@ -2,7 +2,7 @@
     <nav class="container flex flex-wrap items-center justify-between mx-auto lg:flex-nowrap">
         <div class="flex-1 lg:flex-auto">
             <a href="#">
-                <img src="{{ asset('images/logo.png') }}" alt="ໂລໂກ້" class="w-auto h-14 py-2">
+                <img src="{{ asset('images/logo.png') }}" alt="ໂລໂກ້" class="w-auto py-2 h-14">
             </a>
         </div>
         <button type="button" class="text-2xl lg:hidden btnMenuToggle">
@@ -11,19 +11,19 @@
         <div
             class="relative hidden w-full mt-4 lg:mt-0 lg:items-center lg:justify-center flex-2 lg:basis-0 menu-navbar lg:flex">
             <!-- //hidden flex-1 -->
-            <ul class="flex flex-col lg:flex-row">
+            <ul class="relative flex flex-col lg:flex-row hover:text-slate-400">
                 <!--- mt-4   -->
-                <li class="px-4 py-2 rounded-lg hover:bg-sky-500/10 hover:text-slate-300">
-                    <a href="/">ໜ້າຫຼັກ</a>
+                <li class="relative py-2 mx-2 rounded-lg">
+                    <a class="px-4 hover:text-white py-2 after:content-[''] after:absolute after:bottom-0 after:mx-auto after:h-[2px] after:transition-[width] after:ease-in-out after:delay-100 after:hover:w-full after:block after:bg-white after:left-0 {{ request()->routeIs('index') ? 'after:w-full' : 'after:w-0' }}" href="{{ route('index') }}">ໜ້າຫຼັກ</a>
                 </li>
-                <li class="px-4 py-2 rounded-lg hover:bg-sky-500/10 hover:text-slate-300">
-                    <a href="about">ກ່ຽວກັບ</a>
+                <li class="relative py-2 mx-2 rounded-lg">
+                    <a class="px-4 hover:text-white py-2 after:content-[''] after:absolute after:bottom-0 after:mx-auto after:h-[2px] after:transition-[width] after:ease-in-out after:delay-100 after:hover:w-full after:block after:bg-white after:left-0 {{ request()->routeIs('about') ? 'after:w-full' : 'after:w-0' }}" href="{{ route('about') }}">ກ່ຽວກັບ</a>
                 </li>
-                <li class="px-4 py-2 rounded-lg hover:bg-sky-500/10 hover:text-slate-300">
-                    <a href="/news">ຂ່າວສານ</a>
+                <li class="relative py-2 mx-2 rounded-lg">
+                    <a class="px-4 hover:text-white py-2 after:content-[''] after:absolute after:bottom-0 after:mx-auto after:h-[2px] after:transition-[width] after:ease-in-out after:delay-100 after:hover:w-full after:block after:bg-white after:left-0 {{ request()->routeIs('news') ? 'after:w-full' : 'after:w-0' }}" href="{{ route('news') }}">ຂ່າວສານ</a>
                 </li>
-                <li class="px-4 py-2 rounded-lg hover:bg-sky-500/10 hover:text-slate-300">
-                    <a href="/contact">ຕິດຕໍ່ພົວພັນ</a>
+                <li class="relative py-2 mx-2 rounded-lg">
+                    <a class="px-4 hover:text-white py-2 after:content-[''] after:absolute after:bottom-0 after:mx-auto after:h-[2px] after:transition-[width] after:ease-in-out after:delay-100 after:hover:w-full after:block after:bg-white after:left-0 {{ request()->routeIs('contact') ? 'after:w-full' : 'after:w-0' }}" href="{{ route('contact') }}">ຕິດຕໍ່ພົວພັນ</a>
                 </li>
                 <li class="block px-4 py-2 lg:hidden group">
                     <a href="#" class="flex items-center justify-between">ເຂົ້າສູ່ລະບົບ <svg

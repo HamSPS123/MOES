@@ -4,7 +4,7 @@
     <main class="mt-8">
         <div class="container">
             <article class="prose lg:prose-xl">
-                <h1>ແຈ້ງການຂ່າວຕ່າງໆ</h1>
+                <h1>ຂ່າວສານ</h1>
             </article>
 
             <div wire:init='initLoading'>
@@ -12,14 +12,14 @@
             <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 lg:grid-cols-3">
                 @foreach ($news as $new)
                 <div class="w-full">
-                    <div class="shadow-xl card w-[80%] mx-auto mt-4 bg-base-100">
-                        <figure><img src="{{asset('storage/uploads/'.$new->cover)}}" alt="Shoes" /></figure>
+                    <div class="shadow-xl card w-[80%] h-[450px] mx-auto mt-4 bg-base-100">
+                        <figure><img src="{{asset('storage/uploads/'.$new->cover)}}" class="object-cover object-center w-full h-60" alt="ຮູບພາບ" /></figure>
                         <div class="card-body">
-                            <h2 class="card-title"> {{ $new->title }}</h2>
+                            <h2 class="card-title line-clamp-3"> {{ $new->title }}</h2>
                             <p class="text-sm text-gray-500">ໂດຍ {{$new->auth->name}} | {{($new->created_at)->format('d/m/Y')}}</p>
-                            <div class="flex justify-between card-actions mt-4">
-                                <a class="text-red-500 flex items-center gap-1" href="{{asset('storage/uploads/'.$new->attach_file)}}" download="">ດາວໂຫຼດ PDF <ion-icon name="cloud-download-outline"></ion-icon></a>
-                                <a href="{{ route('readmore', ['id'=>$new->id]) }}" class="text-green-500 flex items-center gap-1">ອ່ານຕໍ່ <ion-icon name="chevron-forward-circle-outline"></ion-icon></a>
+                            <div class="flex justify-between mt-4 card-actions">
+                                <a class="flex items-center gap-1 text-red-500" href="{{asset('storage/uploads/'.$new->attach_file)}}" download="">ດາວໂຫຼດໄຟລ໌  <ion-icon name="cloud-download-outline"></ion-icon></a>
+                                <a href="{{ route('readmore', ['id'=>$new->id]) }}" class="flex items-center gap-1 text-green-500">ອ່ານຕໍ່ <ion-icon name="chevron-forward-circle-outline"></ion-icon></a>
 
                             </div>
                         </div>

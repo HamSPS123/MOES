@@ -84,18 +84,13 @@ class UserIndex extends Component
         'code.max' => 'ກະລຸນາປ້ອນບໍ່ເກີນ 10 ຕົວອັນສອນ.',
         'code.unique' => 'ລະຫັດຜູ້ໃຊ້ນີ້ມີແລ້ວກະລຸນາປ້ອນລະຫັດໃໝ່.',
         'name.required' => 'ກະລຸນາປ້ອນຊື່ຜູ້ໃຊ້.',
-        'gender.required' => 'ກະລຸນາເລືອກເພດຂອງຜູ້ໃຊ້.',
-        'dob.required' => 'ກະລຸນາເລືອກວັນເດືອນປີເກີດ.',
-        'telephone.required' => 'ກະລຸນາປ້ອນເບີໂທ.',
         'telephone.regex' => 'ກະລຸນາປ້ອນສະເພາະຕົວເລກ.',
-        'telephone.min' => 'ກະລຸນາປ້ອນຢ່າງໜ້ອຍ 10 ຕົວເລກ.',
         'telephone.max' => 'ກະລຸນາປ້ອນບໍ່ເກີນ 20 ຕົວເລກ.',
         'email.required' => 'ກະລຸນາປ້ອນອີເມວ.',
         'email.email' => 'ຮູບແບບອີເມວບໍ່ຖືກຕ້ອງ.',
         'email.unique' => 'ອີເມວນີ້ມີຢູ່ແລ້ວ ກະລຸນາລອງໃໝ່.',
         'pwd.required' => 'ກະລຸນາປ້ອນລະຫັດຜ່ານ.',
         'pwd.min' => 'ກະລຸນາປ້ອນລະຫັດຜ່ານຢ່າງນ້ອຍ 8 ໂຕຂື້ນໄປ.',
-        'address.required' => 'ກະລຸນາປ້ອນທີ່ຢູ່.',
     ];
 
     public function getUsersProperty()

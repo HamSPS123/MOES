@@ -90,7 +90,7 @@
     <input type="checkbox" id="AddModal" wire:model="modal" class="modal-toggle" />
     <div class="modal">
         <div class="modal-box">
-            <label for="AddModal" class="absolute btn btn-sm btn-circle right-2 top-2">✕</label>
+            <label for="AddModal" class="absolute btn btn-sm btn-circle right-2 top-2" wire:click="resetForm">✕</label>
             <form novalidate wire:submit.prevent='store'>
                 <h3 class="text-xl font-bold">ເພີ່ມຂໍ້ມູນຜູ້ໃຊ້</h3>
 
@@ -163,7 +163,7 @@
 
 
                 <div class="modal-action">
-                    <label for="AddModal" class="btn btn-accent">ຍົກເລີກ</label>
+                    <label for="AddModal" class="btn btn-accent" wire:click="resetForm">ຍົກເລີກ</label>
                     <button type="submit" wire:click.prevent='store'
                         class="text-white btn btn-primary">ບັນທຶກ</button>
                 </div>
@@ -177,7 +177,7 @@
     <input type="checkbox" id="UpdateModal" wire:model="updateModal" class="modal-toggle" />
     <div class="modal">
         <div class="modal-box">
-            <label for="UpdateModal" class="absolute btn btn-sm btn-circle right-2 top-2">✕</label>
+            <label for="UpdateModal" class="absolute btn btn-sm btn-circle right-2 top-2" wire:click="resetForm">✕</label>
             <form novalidate wire:submit.prevent='updateUser'>
                 <h3 class="text-xl font-bold">ແກ້ໄຂຂໍ້ມູນຜູ້ໃຊ້</h3>
 
@@ -242,7 +242,7 @@
 
 
                 <div class="modal-action">
-                    <label for="UpdateModal" class="btn btn-accent">ຍົກເລີກ</label>
+                    <label for="UpdateModal" class="btn btn-accent" wire:click="resetForm">ຍົກເລີກ</label>
                     <button type="submit" class="text-white btn btn-primary">ບັນທຶກ</button>
                 </div>
             </form>
@@ -255,7 +255,7 @@
      <input type="checkbox" id="resetModal" wire:model="resetModal" class="modal-toggle" />
      <div class="modal">
          <div class="modal-box">
-             <label for="resetModal" class="absolute btn btn-sm btn-circle right-2 top-2">✕</label>
+             <label for="resetModal" class="absolute btn btn-sm btn-circle right-2 top-2" wire:click="resetForm">✕</label>
              <form novalidate wire:submit.prevent='confirmReset'>
                  <h3 class="text-xl font-bold">ປ່ຽນລະຫັດຜ່ານ</h3>
 
@@ -271,7 +271,7 @@
 
 
                  <div class="modal-action">
-                     <label for="resetModal" class="btn btn-accent">ຍົກເລີກ</label>
+                     <label for="resetModal" class="btn btn-accent" wire:click="resetForm">ຍົກເລີກ</label>
                      <button type="submit" class="text-white btn btn-primary">ບັນທຶກ</button>
                  </div>
              </form>
